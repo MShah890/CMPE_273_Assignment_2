@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message Request {
+    int32 key = 1;
+}
+
+message Response {
+    string op_type = 1;
+    int32 key = 2;
+    int32 value = 3;
+}
+
+service Datastore {
+   rpc Register(Request) returns (stream Response) {}
+}
